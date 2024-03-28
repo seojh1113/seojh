@@ -3,8 +3,8 @@ from langchain.prompts import PromptTemplate, ChatPromptTemplate
 from langchain.prompts.few_shot import FewShotPromptTemplate
 from langchain.schema import HumanMessage, AIMessage, SystemMessage
 import os
-from langchain.callbacks import StreamingStdOutCallbackHandler
 from dotenv import load_dotenv, find_dotenv
+from langchain.callbacks import StreamingStdOutCallbackHandler
 
 # Fewshot Learning
 # - 모델에게 생성하는 대답의 예제를 전달
@@ -56,9 +56,9 @@ examples = [
     },
 ]
 
-example_prompt = PromptTemplate.from_template([
+example_prompt = PromptTemplate.from_template(
     "Human:{question}\nAI:{answer}"
-])
+)
 
 prompt = FewShotPromptTemplate(
     example_prompt=example_prompt,

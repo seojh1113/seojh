@@ -68,14 +68,14 @@ example_selectors = RandomExampleSelector(
     examples = examples
     )    
 
-example_prompt = PromptTemplate.from_template([
+example_prompt = PromptTemplate.from_template(
     "Human:{question}\nAI:{answer}"
-])
+)
 
 prompt = FewShotPromptTemplate(
     example_prompt=example_prompt,
     # examples=examples,    예제 선택 모두 활용
-    example_selector=example_selector, #랜덤하게 예제 선택 활용
+    example_selector=example_selectors, #랜덤하게 예제 선택 활용
     suffix="Human: What do you know about {country}?",
     input_variables=["country"],
 )
